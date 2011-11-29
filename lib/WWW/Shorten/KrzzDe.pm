@@ -32,7 +32,7 @@ sub makealongerlink ($)
         or croak 'No krzz.de key / URL passed to makealongerlink';
     my $ua = __PACKAGE__->ua();
 
-    $krzz_url = "http://is.gd/$krzz_url"
+    $krzz_url = "http://krzz.de/$krzz_url"
     unless $krzz_url =~ m!^http://!i;
 
     my $resp = $ua->get($krzz_url);
@@ -48,12 +48,12 @@ __END__
 
 =head1 NAME
 
-WWW::Shorten::IsGd - Perl interface to is.gd
+WWW::Shorten::KrzzDe - Perl interface to krzz.de
 
 =head1 SYNOPSIS
 
-  use WWW::Shorten::IsGd;
-  use WWW::Shorten 'IsGd';
+  use WWW::Shorten::KrzzDe;
+  use WWW::Shorten 'KrzzDe';
 
   $short_url = makeashorterlink($long_url);
 
@@ -61,15 +61,15 @@ WWW::Shorten::IsGd - Perl interface to is.gd
 
 =head1 DESCRIPTION
 
-A Perl interface to the web site is.gd.  is.gd simply maintains
+A Perl interface to the web site krzz.de. krzz.de simply maintains
 a database of long URLs, each of which has a unique identifier.
 
-The function C<makeashorterlink> will call the is.gd web site passing
-it your long URL and will return the shorter is.gd version.
+The function C<makeashorterlink> will call the krzz.de API passing
+it your long URL and will return the shorter krzz.de version.
 
 The function C<makealongerlink> does the reverse. C<makealongerlink>
-will accept as an argument either the full is.gd URL or just the
-is.gd identifier.
+will accept as an argument either the full krzz.de URL or just the
+krzz.de identifier.
 
 If anything goes wrong, then either function will return C<undef>.
 
